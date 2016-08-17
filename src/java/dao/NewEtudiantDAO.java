@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import entity.Etudiant;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author admin
- */
 public class NewEtudiantDAO {
     
     public void enregistrerEtudiant (Etudiant e) {
@@ -22,4 +14,8 @@ public class NewEtudiantDAO {
     em.getTransaction().commit();
     }
     
+    public List<Etudiant> lister() {
+    EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+    return em.createQuery("SELECT e FROM Etudiant e").getResultList();
+    }
 }

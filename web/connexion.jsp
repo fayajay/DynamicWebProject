@@ -1,9 +1,3 @@
-<%-- 
-    Document   : connexion
-    Created on : 16 août 2016, 14:53:07
-    Author     : admin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,9 +8,10 @@
     <body>
         <h1>youhouhouhou</h1>
         <form method="POST">
-                Nom : <input type="text" name="nom"/>
-                Prenom : <input type="text" name="prenom"/><br/>
-
+                Id : <input type="text" name="numEt"/><br>
+                Nom : <input type="text" name="nomEt"/>
+                Prenom : <input type="text" name="prenomEt"/><br>
+                Classe : <input type="text" name="idClasse"/><br>
                 <input type="submit" value="enregistrer"/>
                 <input type="reset" value="annuler"/>
             </form>

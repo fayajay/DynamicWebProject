@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlet;
 
 import entity.Etudiant;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,11 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.NewEtudiantService;
 
-/**
- *
- * @author admin
- */
-@WebServlet(name = "ServletForm", urlPatterns = {"/ServletForm"})
+
+@WebServlet(name = "ServletForm", urlPatterns = {"/servlet_form"})
 public class ServletForm extends HttpServlet {
     
     
@@ -38,12 +31,17 @@ public class ServletForm extends HttpServlet {
         
         Etudiant e = new Etudiant();
         
-        e.setNomEt(req.getParameter("nom"));
-        e.setPrenomEt(req.getParameter("prenom"));
+        e.setNumEt(Integer.parseInt(req.getParameter("numEt")));
+        e.setNomEt(req.getParameter("nomEt"));
+        e.setPrenomEt(req.getParameter("prenomEt"));
+       // e.setIdClasse
+        
         
         NewEtudiantService es = new NewEtudiantService();
         
         es.enregistrerEtudiant(e);
+        
+        resp.sendRedirect("servletTest");
         
     }
 }
